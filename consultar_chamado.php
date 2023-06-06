@@ -1,11 +1,5 @@
 <?php
-session_start();
-$user_auth = $_SESSION['auth'];
-if (!$user_auth) {
-  header('Location: index.php?auth=true');
-  return;
-}
-
+require_once('utils/auth.php');
 ?>
 
 <html>
@@ -28,12 +22,9 @@ if (!$user_auth) {
 
 <body>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      App Help Desk
-    </a>
-  </nav>
+  <?php
+  require_once('menu/index.php');
+  ?>
 
   <div class="container">
     <div class="row">
