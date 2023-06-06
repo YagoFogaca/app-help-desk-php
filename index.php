@@ -13,6 +13,10 @@
       width: 350px;
       margin: 0 auto;
     }
+
+    .text-danger {
+      margin: 15px 0;
+    }
   </style>
 </head>
 
@@ -33,6 +37,13 @@
             Login
           </div>
           <div class="card-body">
+            <?php if (isset($_GET['auth'])) { ?>
+
+
+              <div class="text-danger">
+                Você precisa fazer login para acessar as páginas.
+              </div>
+            <?php } ?>
             <form method="post" action="valida_login.php">
               <div class="form-group">
                 <input name="email" type="email" class="form-control" placeholder="E-mail">
@@ -48,7 +59,6 @@
                   Email ou senha invalidos
                 </div>
               <?php } ?>
-
               <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
             </form>
           </div>
