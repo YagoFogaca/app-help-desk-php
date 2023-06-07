@@ -1,5 +1,31 @@
 <?php
 require_once('utils/auth.php');
+#feof
+# Função nativa que testa pelo fim de um arquivo.
+# Ou seja, ela percorrer todo o arquivo até 
+# identificar o END OF FILE ( o fim do arquivo)
+
+# abrimos o arquivo para leitura
+$chamados = fopen('chamados.hd', 'r');
+$chamados_data = [];
+
+# Percorremos o arquivo até o fim do arquivo
+# A função retorna false, caso não encontre o fim do arquivo
+while (!feof($chamados)) {
+  # Função nativa para pegar o ponteiro indicado pela referencia
+  # Importante ressaltar que o ponteiro é em relação a referencia do arquivo,
+  # portanto ao executar a função feof a cada interação da repetição
+  # o ponteiro e direcionado a proxima linha. Com isso $ registro recebe cada linha 
+  # do arquivo
+
+  $registro = fgets($chamados);
+
+  if (!empty($registro)) {
+    array_push($chamados_data, $registro);
+  }
+}
+
+fclose($chamados);
 ?>
 
 <html>
@@ -45,24 +71,27 @@ require_once('utils/auth.php');
 
           <div class="card-body">
 
-            <div class="card mb-3 bg-light">
-              <div class="card-body">
-                <h5 class="card-title">Título do chamado...</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                <p class="card-text">Descrição do chamado...</p>
 
+            <?php
+            foreach ($chamados_data as $chamado) {
+              $chamado_formatado = explode('#', $chamado);
+              ?>
+              <div class="card mb-3 bg-light">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <?php echo $chamado_formatado[0]; ?>
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <?php echo $chamado_formatado[1]; ?>
+                  </h6>
+                  <p class="card-text">
+                    <?php echo $chamado_formatado[2]; ?>
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div class="card mb-3 bg-light">
-              <div class="card-body">
-                <h5 class="card-title">Título do chamado...</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                <p class="card-text">Descrição do chamado...</p>
-
-              </div>
-            </div>
-
+              <?php
+            }
+            ?>
             <div class="row mt-5">
               <div class="col-6">
                 <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a>
