@@ -23,9 +23,14 @@ require_once('../utils/auth.php');
 
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-      <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       App Help Desk
     </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="../utils/logoff.php" class="nav-link">Sair</a>
+      </li>
+    </ul>
   </nav>
 
   <div class="container">
@@ -39,10 +44,15 @@ require_once('../utils/auth.php');
           <div class="card-body">
             <div class="row">
               <div class="col-6 d-flex justify-content-center">
-                <img src="formulario_abrir_chamado.png" width="70" height="70">
+                <a href="../pages/abrir_chamado.php">
+                  <img src="../assets/formulario_abrir_chamado.png" width="70" height="70">
+                </a>
               </div>
+
               <div class="col-6 d-flex justify-content-center">
-                <img src="formulario_consultar_chamado.png" width="70" height="70">
+                <a href="../pages/consultar_chamado.php">
+                  <img src="../assets/formulario_consultar_chamado.png" width="70" height="70">
+                </a>
               </div>
             </div>
           </div>
