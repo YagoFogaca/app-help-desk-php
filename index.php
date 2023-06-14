@@ -13,17 +13,13 @@
       width: 350px;
       margin: 0 auto;
     }
-
-    .text-danger {
-      margin: 15px 0;
-    }
   </style>
 </head>
 
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-      <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
       App Help Desk
     </a>
   </nav>
@@ -36,35 +32,20 @@
             Login
           </div>
           <div class="card-body">
-            <?php if (isset($_GET['auth'])) { ?>
-
-
-              <div class="text-danger">
-                Você precisa fazer login para acessar as páginas.
-              </div>
-            <?php } ?>
-            <form method="post" action="valida_login.php">
+            <form>
               <div class="form-group">
-                <input name="email" type="email" class="form-control" placeholder="E-mail">
+                <input type="email" class="form-control" placeholder="E-mail">
               </div>
               <div class="form-group">
-                <input name="password" type="password" class="form-control" placeholder="Senha">
+                <input type="password" class="form-control" placeholder="Senha">
               </div>
-
-              <?php if (isset($_GET['login'])) { ?>
-
-
-                <div class="text-danger">
-                  Email ou senha invalidos
-                </div>
-              <?php } ?>
               <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
 </body>
 
 </html>
