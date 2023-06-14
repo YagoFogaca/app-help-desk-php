@@ -1,5 +1,6 @@
 <?php
 require_once('../utils/auth.php');
+require_once('../controllers/consultar_chamado.php');
 ?>
 
 <html>
@@ -24,9 +25,14 @@ require_once('../utils/auth.php');
 
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-      <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="../assets/logo.png" src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       App Help Desk
     </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="../utils/logoff.php" class="nav-link">Sair</a>
+      </li>
+    </ul>
   </nav>
 
   <div class="container">
@@ -39,28 +45,31 @@ require_once('../utils/auth.php');
           </div>
 
           <div class="card-body">
+            <?php
+            foreach ($calls as $called) {
+              $text = explode('#', $called);
+              ?>
 
-            <div class="card mb-3 bg-light">
-              <div class="card-body">
-                <h5 class="card-title">Título do chamado...</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                <p class="card-text">Descrição do chamado...</p>
+              <div class="card mb-3 bg-light">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <?php echo $text[0]; ?>
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <?php echo $text[1]; ?>
+                  </h6>
+                  <p class="card-text">
+                    <?php echo $text[2]; ?>
+                  </p>
 
+                </div>
               </div>
-            </div>
-
-            <div class="card mb-3 bg-light">
-              <div class="card-body">
-                <h5 class="card-title">Título do chamado...</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                <p class="card-text">Descrição do chamado...</p>
-
-              </div>
-            </div>
-
+              <?php
+            }
+            ?>
             <div class="row mt-5">
               <div class="col-6">
-                <button class="btn btn-lg btn-warning btn-block" type="submit">Voltar</button>
+                <a href="../pages/home.php" class="btn btn-lg btn-warning btn-block">Voltar</a>
               </div>
             </div>
           </div>
