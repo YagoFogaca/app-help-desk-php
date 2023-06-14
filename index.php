@@ -32,13 +32,27 @@
             Login
           </div>
           <div class="card-body">
-            <form>
+            <?php
+            if (isset($_GET['auth'])) {
+              ?>
+              <div class="text-danger">
+                Você precisa fazer login para acessar as páginas.
+              </div>
+              <?php
+            }
+            ?>
+            <form action="./controllers/login.php" method="post">
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="E-mail">
+                <input name="email" type="email" class="form-control" placeholder="E-mail">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Senha">
+                <input name="password" type="password" class="form-control" placeholder="Senha">
               </div>
+              <?php if (isset($_GET['login'])) { ?>
+                <div class="text-danger">
+                  Email ou senha invalidos
+                </div>
+              <?php } ?>
               <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
             </form>
           </div>
