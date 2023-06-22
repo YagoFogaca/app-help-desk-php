@@ -17,9 +17,17 @@ abstract class Controller
     $this->view = new \stdClass();
   }
 
+
+  // Renderiza o layout padrão da aplicação
   protected function render($page)
   {
-    // echo '../src/view/' . $page . '.phtml';
-    require_once '../src/view/' . $page . '.phtml';
+    $this->view->page = $page;
+    require_once '../src/view/layout/index.phtml';
+  }
+
+  // Renderiza dentro do layout, a view solicitada
+  protected function content()
+  {
+    require_once '../src/view/' . $this->view->page . '.phtml';
   }
 }
