@@ -9,6 +9,14 @@ class Routes extends RoutesConfig
   public function initRoutes()
   {
     $routes = [
+      "login" => [
+        "route" => "/",
+        "action" => "index"
+      ],
+      "auth" => [
+        "route" => "/login",
+        "action" => "login"
+      ],
       "home" => [
         "route" => "/home",
         "action" => "home"

@@ -7,6 +7,17 @@ use Core\Controller as ControllerConfig;
 
 class Controller extends ControllerConfig
 {
+  public function index()
+  {
+    $this->render('login');
+  }
+  public function login()
+  {
+    echo '<pre>';
+    print_r(@$_POST);
+    echo '</pre>';
+    // $this->render('login');
+  }
   public function home()
   {
     $this->render('home');
