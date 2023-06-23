@@ -24,8 +24,10 @@ class Controller extends ControllerConfig
       $_SESSION['auth'] = true;
 
       $this->render('home');
+      exit();
     } catch (\PDOException $error) {
       header('Location: /?login=true');
+      exit();
     }
   }
 
@@ -39,6 +41,22 @@ class Controller extends ControllerConfig
   {
     Auth::verifyAuth();
     $this->render('abrir_chamado');
+  }
+
+  public function criarChamado()
+  {
+    Auth::verifyAuth();
+    try {
+      $chamado = $_POST;
+      $model = new Model();
+      $model->createChamado($chamado);
+      echo '<script>alert("Chamado criado com sucesso")</script>';
+      $this->render('home');
+      exit();
+    } catch (\PDOException $error) {
+      echo '<script>alert("Erro ao criar o chamado")</script>';
+      exit();
+    }
   }
 
   public function consultarChamado()

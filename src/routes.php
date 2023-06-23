@@ -25,6 +25,10 @@ class Routes extends RoutesConfig
         "route" => "/abrir-chamado",
         "action" => "abrirChamado"
       ],
+      "criar_chamado" => [
+        "route" => "/criar-chamado",
+        "action" => "criarChamado"
+      ],
       "consultar_chamado" => [
         "route" => "/consultar-chamado",
         "action" => "consultarChamado"
