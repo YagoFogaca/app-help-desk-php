@@ -4,6 +4,7 @@ namespace Src\Controller;
 
 use Src\Model\Model;
 use Core\Controller as ControllerConfig;
+use Core\Auth;
 
 class Controller extends ControllerConfig
 {
@@ -30,16 +31,19 @@ class Controller extends ControllerConfig
 
   public function home()
   {
+    Auth::verifyAuth();
     $this->render('home');
   }
 
   public function abrirChamado()
   {
+    Auth::verifyAuth();
     $this->render('abrir_chamado');
   }
 
   public function consultarChamado()
   {
+    Auth::verifyAuth();
     $this->render('consultar_chamado');
   }
 
