@@ -5,6 +5,7 @@ namespace Src\Controller;
 use Src\Model\Model;
 use Core\Controller as ControllerConfig;
 use Core\Auth;
+use Core\Logoff;
 
 class Controller extends ControllerConfig
 {
@@ -69,6 +70,12 @@ class Controller extends ControllerConfig
     } catch (\PDOException $error) {
       exit();
     }
+  }
+
+  public function logoff()
+  {
+    Logoff::logoff();
+    exit();
   }
 
   public function page404()

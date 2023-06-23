@@ -33,6 +33,10 @@ class Routes extends RoutesConfig
         "route" => "/consultar-chamado",
         "action" => "consultarChamado"
       ],
+      "logoff" => [
+        "route" => "/logoff",
+        "action" => "logoff"
+      ],
       "page404" => [
         "route" => "/page404",
         "action" => "page404"
