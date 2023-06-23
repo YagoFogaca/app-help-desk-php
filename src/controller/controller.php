@@ -61,8 +61,14 @@ class Controller extends ControllerConfig
 
   public function consultarChamado()
   {
-    Auth::verifyAuth();
-    $this->render('consultar_chamado');
+    try {
+      Auth::verifyAuth();
+      $model = new Model();
+      $this->view->data = $model->findChamado();
+      $this->render('consultar_chamado');
+    } catch (\PDOException $error) {
+      exit();
+    }
   }
 
   public function page404()

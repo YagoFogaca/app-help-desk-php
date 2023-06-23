@@ -9,26 +9,26 @@
 
         <div class="card-body">
           <?php
-          //foreach ($calls as $called) {
-          //$text = explode('#', $called);
+          foreach ($this->view->data as $chamado) {
           ?>
-
-          <!-- <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <?php echo $text[0]; ?>
-                  </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">
-                    <?php echo $text[1]; ?>
-                  </h6>
-                  <p class="card-text">
-                    <?php echo $text[2]; ?>
-                  </p>
-
-                </div>
-              </div> -->
+            <div class="card mb-3 bg-light">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <?= $chamado['titulo'];
+                  ?>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  <?= $chamado['categoria'];
+                  ?>
+                </h6>
+                <p class="card-text">
+                  <?= $chamado['descricao'];
+                  ?>
+                </p>
+              </div>
+            </div>
           <?php
-          //}
+          }
           ?>
           <div class="row mt-5">
             <div class="col-6">

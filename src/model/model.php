@@ -40,4 +40,11 @@ class Model
 
     return true;
   }
+
+  public function findChamado()
+  {
+    $query = $this->db->prepare('SELECT * FROM chamados');
+    $query->execute();
+    return $query->fetchAll(\PDO::FETCH_ASSOC);
+  }
 }
